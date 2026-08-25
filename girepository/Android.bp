@@ -173,6 +173,8 @@ cc_library_shared {
         "-Wno-type-limits",
         "-Wno-cast-align",
         "-Wno-missing-field-initializers",
+        // Converted from: gnu_symbol_visibility: 'hidden'
+        "-fvisibility=hidden",
     ],
 
     // Converted from: include_directories: [configinc, girepoinc]
@@ -188,11 +190,6 @@ cc_library_shared {
         "libgobject-2.0",
         "libgmodule-2.0",
         "libgio-2.0",
-    ],
-
-    // Converted from: gnu_symbol_visibility: 'hidden'
-    clang_cflags: [
-        "-fvisibility=hidden",
     ],
 
     // Converted from: link_args: glib_link_flags

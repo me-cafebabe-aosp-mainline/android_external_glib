@@ -16,6 +16,8 @@ cc_library_shared {
     cflags: [
         "-DG_LOG_DOMAIN=\"GModule\"",
         "-DGMODULE_COMPILATION",
+        // Converted from: gnu_symbol_visibility: 'hidden'
+        "-fvisibility=hidden",
     ],
 
     // Converted from: dependencies: [libdl_dep, libglib_dep]
@@ -23,11 +25,6 @@ cc_library_shared {
     shared_libs: [
         "libglib-2.0",
         "libdl",
-    ],
-
-    // Converted from: gnu_symbol_visibility: 'hidden'
-    clang_cflags: [
-        "-fvisibility=hidden",
     ],
 
     // Converted from: link_args: [glib_link_flags]

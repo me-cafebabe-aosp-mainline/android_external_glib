@@ -136,6 +136,8 @@ cc_library_shared {
     cflags: [
         "-DG_LOG_DOMAIN=\"GLib\"",
         "-DGLIB_COMPILATION",
+        // Converted from: gnu_symbol_visibility: 'hidden'
+        "-fvisibility=hidden",
     ],
 
     // Converted from: include_directories: configinc
@@ -152,11 +154,6 @@ cc_library_shared {
     // libm, pthread are part of Bionic, no separate library needed
     shared_libs: [
         "libpcre2",
-    ],
-
-    // Converted from: gnu_symbol_visibility: 'hidden'
-    clang_cflags: [
-        "-fvisibility=hidden",
     ],
 
     // Converted from: link_args: glib_link_flags ([-Wl,-z,nodelete, -Wl,-Bsymbolic-functions])

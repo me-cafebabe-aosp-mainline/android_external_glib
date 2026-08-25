@@ -331,6 +331,8 @@ cc_library_shared {
         "-DLOCALSTATEDIR=\"/data/local/tmp/var\"",
         // Converted from: FILE_MONITOR_BACKEND_INOTIFY (Android uses inotify)
         "-DFILE_MONITOR_BACKEND_INOTIFY=1",
+        // Converted from: gnu_symbol_visibility: 'hidden'
+        "-fvisibility=hidden",
     ],
 
     // Converted from: include_directories: [configinc, gioinc]
@@ -354,11 +356,6 @@ cc_library_shared {
         "libglib-2.0",
         "libgobject-2.0",
         "libgmodule-2.0",
-    ],
-
-    // Converted from: gnu_symbol_visibility: 'hidden'
-    clang_cflags: [
-        "-fvisibility=hidden",
     ],
 
     // Converted from: link_args: glib_link_flags

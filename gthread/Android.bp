@@ -17,16 +17,13 @@ cc_library_shared {
     cflags: [
         "-DG_LOG_DOMAIN=\"GThread\"",
         "-DGLIB_COMPILATION",
+        // Converted from: gnu_symbol_visibility: 'hidden'
+        "-fvisibility=hidden",
     ],
 
     // Converted from: dependencies: [libglib_dep]
     shared_libs: [
         "libglib-2.0",
-    ],
-
-    // Converted from: gnu_symbol_visibility: 'hidden'
-    clang_cflags: [
-        "-fvisibility=hidden",
     ],
 
     // Converted from: link_args: glib_link_flags
