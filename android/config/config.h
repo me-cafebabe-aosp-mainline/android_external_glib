@@ -270,7 +270,8 @@
 /* Converted from: statfs/statvfs determination */
 /* Android has statvfs but not statfs in the traditional sense */
 /* #undef USE_STATFS */
-#define USE_STATVFS 1
+#define USE_STATFS 1
+//#define USE_STATVFS 1
 
 /* Converted from: HAVE_SYS_STATVFS_H => functions += ['statvfs'] */
 #define HAVE_STATVFS 1
