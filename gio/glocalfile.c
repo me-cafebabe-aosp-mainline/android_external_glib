@@ -77,6 +77,10 @@
 
 #include "glib-private.h"
 
+#ifdef ANDROID
+#include <sys/vfs.h>
+#endif
+
 #ifdef G_OS_WIN32
 #include <windows.h>
 #include <io.h>
