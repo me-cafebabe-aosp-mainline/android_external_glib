@@ -1,0 +1,41 @@
+// Converted from: gthread/meson.build
+// GThread library - Android.bp build rules
+// Note: This is just a skeleton lib for backwards compatibility,
+// all threading functionality has been moved into glib.
+
+cc_library_shared {
+    name: "libgthread-2.0",
+    defaults: ["glib_defaults"],
+    vendor_available: true,
+    product_available: true,
+
+    // Converted from: gthread_sources = ['gthread-impl.c']
+    srcs: [
+        "gthread-impl.c",
+    ],
+
+    // Converted from: c_args: ['-DG_LOG_DOMAIN="GThread"', glib_c_args_internal, ...]
+    cflags: [
+        "-DG_LOG_DOMAIN=\"GThread\"",
+        "-DGLIB_COMPILATION",
+    ],
+
+    // Converted from: dependencies: [libglib_dep]
+    shared_libs: [
+        "libglib-2.0",
+    ],
+
+    // Converted from: gnu_symbol_visibility: 'hidden'
+    clang_cflags: [
+        "-fvisibility=hidden",
+    ],
+
+    // Converted from: link_args: glib_link_flags
+    ldflags: [
+        "-Wl,-z,nodelete",
+        "-Wl,-Bsymbolic-functions",
+    ],
+
+    // Converted from: include_directories: [configinc]
+    // Note: root-relative include_dirs already provided by glib_defaults
+}

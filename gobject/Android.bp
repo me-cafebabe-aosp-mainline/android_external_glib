@@ -1,0 +1,63 @@
+// Converted from: gobject/meson.build
+// GObject library - Android.bp build rules
+
+cc_library_shared {
+    name: "libgobject-2.0",
+    defaults: ["glib_defaults"],
+    vendor_available: true,
+    product_available: true,
+
+    srcs: [
+        // Converted from: gobject_sources
+        "gatomicarray.c",
+        "gbinding.c",
+        "gbindinggroup.c",
+        "gboxed.c",
+        "gclosure.c",
+        "genums.c",
+        "gmarshal.c",
+        "gobject.c",
+        "gparam.c",
+        "gparamspecs.c",
+        "gsignal.c",
+        "gsignalgroup.c",
+        "gsourceclosure.c",
+        "gtype.c",
+        "gtypemodule.c",
+        "gtypeplugin.c",
+        "gvalue.c",
+        "gvaluearray.c",
+        "gvaluetransform.c",
+        "gvaluetypes.c",
+    ],
+
+    // Converted from: c_args: ['-DG_LOG_DOMAIN="GLib-GObject"', '-DGOBJECT_COMPILATION', ...]
+    cflags: [
+        "-DG_LOG_DOMAIN=\"GLib-GObject\"",
+        "-DGOBJECT_COMPILATION",
+    ],
+
+    // Converted from: dependencies: [libffi_dep, libglib_dep]
+    shared_libs: [
+        "libffi",
+        "libglib-2.0",
+    ],
+
+    // Converted from: gnu_symbol_visibility: 'hidden'
+    clang_cflags: [
+        "-fvisibility=hidden",
+    ],
+
+    // Converted from: link_args: glib_link_flags
+    ldflags: [
+        "-Wl,-z,nodelete",
+        "-Wl,-Bsymbolic-functions",
+    ],
+
+    // Converted from: include_directories: [configinc]
+    // Note: root-relative include_dirs already provided by glib_defaults
+
+    export_include_dirs: [
+        ".",
+    ],
+}

@@ -1,0 +1,174 @@
+// Converted from: glib/meson.build
+// GLib core library - Android.bp build rules
+
+// Converted from: glib/libcharset/meson.build - charset_lib static library
+cc_library_static {
+    name: "libglib_charset",
+    defaults: ["glib_defaults"],
+    vendor_available: true,
+    srcs: [
+        "libcharset/localcharset.c",
+    ],
+    // Converted from: extra_charset_args = ['-Wno-sign-conversion']
+    cflags: [
+        "-Wno-sign-conversion",
+        // Converted from: '-DGLIB_CHARSETALIAS_DIR="@0@"' - use default libdir
+        "-DGLIB_CHARSETALIAS_DIR=\"/system/lib\"",
+    ],
+}
+
+// Converted from: glib/meson.build - libglib-2.0 shared library
+// Note: gnulib is NOT needed because USE_SYSTEM_PRINTF=1 on Android
+cc_library_shared {
+    name: "libglib-2.0",
+    defaults: ["glib_defaults"],
+    vendor_available: true,
+    product_available: true,
+
+    srcs: [
+        // Converted from: glib_deprecated_sources
+        "deprecated/gallocator.c",
+        "deprecated/gcache.c",
+        "deprecated/gcompletion.c",
+        "deprecated/grel.c",
+        "deprecated/gthread-deprecated.c",
+
+        // Converted from: glib_sources (main sources)
+        "garcbox.c",
+        "garray.c",
+        "gasyncqueue.c",
+        "gatomic.c",
+        "gbacktrace.c",
+        "gbase64.c",
+        "gbitlock.c",
+        "gbookmarkfile.c",
+        "gbytes.c",
+        "gcharset.c",
+        "gchecksum.c",
+        "gconvert.c",
+        "gdataset.c",
+        "gdate.c",
+        "gdatetime.c",
+        "gdatetime-private.c",
+        "gdir.c",
+        "genviron.c",
+        "gerror.c",
+        "gfileutils.c",
+        "ggettext.c",
+        "ghash.c",
+        "ghmac.c",
+        "ghook.c",
+        "ghostutils.c",
+        "giochannel.c",
+        "gkeyfile.c",
+        "glib-init.c",
+        "glib-private.c",
+        "glist.c",
+        "gmain.c",
+        "gmappedfile.c",
+        "gmarkup.c",
+        "gmem.c",
+        "gmessages.c",
+        "gnode.c",
+        "goption.c",
+        "gpathbuf.c",
+        "gpattern.c",
+        "gpoll.c",
+        "gprimes.c",
+        "gqsort.c",
+        "gquark.c",
+        "gqueue.c",
+        "grand.c",
+        "grcbox.c",
+        "grefcount.c",
+        "grefstring.c",
+        "gregex.c",
+        "gscanner.c",
+        "gsequence.c",
+        "gshell.c",
+        "gslice.c",
+        "gslist.c",
+        "gspawn.c",
+        "gstdio.c",
+        "gstrfuncs.c",
+        "gstring.c",
+        "gstringchunk.c",
+        "gstrvbuilder.c",
+        "gtestutils.c",
+        "gthread.c",
+        "gthreadpool.c",
+        "gtimer.c",
+        "gtimezone.c",
+        "gtrace.c",
+        "gtranslit.c",
+        "gtrashstack.c",
+        "gtree.c",
+        "guniprop.c",
+        "gutf8.c",
+        "gunibreak.c",
+        "gunicollate.c",
+        "gunidecomp.c",
+        "guri.c",
+        "gutils.c",
+        "guuid.c",
+        "gvariant.c",
+        "gvariant-core.c",
+        "gvariant-parser.c",
+        "gvariant-serialiser.c",
+        "gvarianttypeinfo.c",
+        "gvarianttype.c",
+        "gversion.c",
+        "gwakeup.c",
+        "gprint.c",
+        "gprintf.c",
+
+        // Converted from: non-windows glib_sources += files('glib-unix.c', 'giounix.c')
+        "glib-unix.c",
+        "giounix.c",
+
+        // Converted from: process_spawn_allowed => files('gspawn-posix.c')
+        "gspawn-posix.c",
+
+        // Converted from: host_system == 'linux' => files('gjournal-private.c')
+        "gjournal-private.c",
+    ],
+
+    // Converted from: c_args: ['-DG_LOG_DOMAIN="GLib"'] + glib_c_args_internal
+    cflags: [
+        "-DG_LOG_DOMAIN=\"GLib\"",
+        "-DGLIB_COMPILATION",
+    ],
+
+    // Converted from: include_directories: configinc
+    // Note: root-relative include_dirs already provided by glib_defaults
+
+    // Converted from: link_with: [charset_lib, gnulib_lib]
+    // gnulib_lib is empty since USE_SYSTEM_PRINTF=1
+    static_libs: [
+        "libglib_charset",
+    ],
+
+    // Converted from: dependencies (pcre2, libm, thread_dep, etc.)
+    // iconv is built into Bionic, libintl not needed on Android
+    // libm, pthread are part of Bionic, no separate library needed
+    shared_libs: [
+        "libpcre2",
+    ],
+
+    // Converted from: gnu_symbol_visibility: 'hidden'
+    clang_cflags: [
+        "-fvisibility=hidden",
+    ],
+
+    // Converted from: link_args: glib_link_flags ([-Wl,-z,nodelete, -Wl,-Bsymbolic-functions])
+    ldflags: [
+        "-Wl,-z,nodelete",
+        "-Wl,-Bsymbolic-functions",
+    ],
+
+    export_include_dirs: [
+        ".",
+    ],
+
+    export_header_lib_headers: ["libglib_config_headers"],
+}

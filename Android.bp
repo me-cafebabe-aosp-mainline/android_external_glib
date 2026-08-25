@@ -1,0 +1,110 @@
+// Converted from: meson.build root project definition
+// GLib 2.89.4 - Android.bp build rules for AOSP
+
+package {
+    default_applicable_licenses: ["external_glib_license"],
+}
+
+// Converted from: COPYING, LICENSES/ directory
+license {
+    name: "external_glib_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-LGPL-2.1",
+        "SPDX-license-identifier-MIT",
+    ],
+    license_text: [
+        "COPYING",
+    ],
+}
+
+// Converted from: meson default_options, add_project_arguments, warning flags
+cc_defaults {
+    name: "glib_defaults",
+    vendor_available: true,
+    product_available: true,
+    c_std: "gnu11",
+    cflags: [
+        // Converted from: add_project_arguments('-D_GNU_SOURCE', ...)
+        "-D_GNU_SOURCE",
+        // Converted from: add_project_arguments('-fno-strict-aliasing', ...)
+        "-fno-strict-aliasing",
+        // Converted from: warning_c_args (gcc/clang)
+        "-Wno-unused-parameter",
+        "-Wno-cast-function-type",
+        "-Wno-pedantic",
+        "-Wno-format-zero-length",
+        "-Wno-variadic-macros",
+        "-Wno-bad-function-cast",
+        "-Wno-string-plus-int",
+        // Converted from: glib_debug_cflags - release build disables cast checks
+        "-DG_DISABLE_CAST_CHECKS",
+        // Suppressions needed for glib code patterns
+        "-Wno-sign-compare",
+        "-Wno-unused-function",
+        "-Wno-tautological-compare",
+        "-Wno-typedef-redefinition",
+        "-Wno-missing-field-initializers",
+        "-Wno-initializer-overrides",
+        "-Wno-gnu-variable-sized-type-not-at-end",
+    ],
+    // Converted from: include_directories('.', 'glib', 'gobject', 'gmodule', 'gio', 'girepository')
+    include_dirs: [
+        ".",
+        "glib",
+        "gobject",
+        "gmodule",
+        "gio",
+        "girepository",
+    ],
+    // Converted from: glib_conf (config.h) and generated headers
+    static_libs: [],
+    shared_libs: [],
+    header_libs: ["libglib_config_headers"],
+}
+
+// Converted from: configinc (include_directories('.')) for config.h
+// and glibconfig.h (architecture-specific)
+cc_library_headers {
+    name: "libglib_config_headers",
+    vendor_available: true,
+    product_available: true,
+    // Converted from: configure_file(output: 'config.h', configuration: glib_conf)
+    export_include_dirs: [
+        "android/config",
+        "android/gen",
+    ],
+    // Converted from: glibconfig.h architecture-specific generation
+    arch: {
+        arm: {
+            export_include_dirs: ["android/config_arm"],
+        },
+        arm64: {
+            export_include_dirs: ["android/config_arm64"],
+        },
+        x86: {
+            export_include_dirs: ["android/config_x86"],
+        },
+        x86_64: {
+            export_include_dirs: ["android/config_x86_64"],
+        },
+    },
+}
+
+// Converted from: gen_visibility_macros usage for each module
+// glib-visibility.h, gobject-visibility.h, etc. are pre-generated in android/gen/
+cc_library_headers {
+    name: "libglib_gen_headers",
+    vendor_available: true,
+    product_available: true,
+    export_include_dirs: ["android/gen"],
+}
+
+// Converted from: gen-visibility-macros.py versions-macros subcommand
+// gversionmacros.h is pre-generated in android/gen/
+cc_library_headers {
+    name: "libglib_version_headers",
+    vendor_available: true,
+    product_available: true,
+    export_include_dirs: ["android/gen"],
+}

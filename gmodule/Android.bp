@@ -1,0 +1,46 @@
+// Converted from: gmodule/meson.build
+// GModule library - Android.bp build rules
+
+cc_library_shared {
+    name: "libgmodule-2.0",
+    defaults: ["glib_defaults"],
+    vendor_available: true,
+    product_available: true,
+
+    srcs: [
+        // Converted from: gmodule_sources = [gmodule_c, gmodule_visibility_h, gmodule_deprecated_c]
+        "gmodule.c",
+        "gmodule-deprecated.c",
+    ],
+
+    // Converted from: c_args: ['-DG_LOG_DOMAIN="GModule"', '-DGMODULE_COMPILATION', ...]
+    cflags: [
+        "-DG_LOG_DOMAIN=\"GModule\"",
+        "-DGMODULE_COMPILATION",
+    ],
+
+    // Converted from: dependencies: [libdl_dep, libglib_dep]
+    // libdl is part of Bionic on Android
+    shared_libs: [
+        "libglib-2.0",
+        "libdl",
+    ],
+
+    // Converted from: gnu_symbol_visibility: 'hidden'
+    clang_cflags: [
+        "-fvisibility=hidden",
+    ],
+
+    // Converted from: link_args: [glib_link_flags]
+    ldflags: [
+        "-Wl,-z,nodelete",
+        "-Wl,-Bsymbolic-functions",
+    ],
+
+    // Converted from: include_directories: [configinc, gmoduleinc]
+    // Note: root-relative include_dirs already provided by glib_defaults
+
+    export_include_dirs: [
+        ".",
+    ],
+}
