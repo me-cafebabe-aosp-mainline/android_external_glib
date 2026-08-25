@@ -48,7 +48,17 @@ cc_defaults {
         "-Wno-gnu-variable-sized-type-not-at-end",
     ],
     // Converted from: include_directories('.', 'glib', 'gobject', 'gmodule', 'gio', 'girepository')
-    include_dirs: [
+    // Converted from: glib_conf (config.h) and generated headers
+    static_libs: [],
+    shared_libs: [],
+    header_libs: ["libglib_config_headers", "glib_global_headers"],
+}
+
+// Converted from: include_directories('.', 'glib', 'gobject', 'gmodule', 'gio', 'girepository')
+cc_library_headers {
+    name: "glib_global_headers",
+    vendor_available: true,
+    export_include_dirs: [
         ".",
         "glib",
         "gobject",
@@ -56,10 +66,6 @@ cc_defaults {
         "gio",
         "girepository",
     ],
-    // Converted from: glib_conf (config.h) and generated headers
-    static_libs: [],
-    shared_libs: [],
-    header_libs: ["libglib_config_headers"],
 }
 
 // Converted from: configinc (include_directories('.')) for config.h
