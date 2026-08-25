@@ -286,7 +286,7 @@
 
 /* Converted from: futex/eventfd/ppoll/pidfd checks */
 #define HAVE_FUTEX 1
-#define HAVE_FUTEX_TIME64 1
+//#define HAVE_FUTEX_TIME64 1
 #define HAVE_EVENTFD 1
 #define HAVE_PPOLL 1
 /* #undef HAVE_PIDFD */
