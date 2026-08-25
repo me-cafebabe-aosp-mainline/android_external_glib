@@ -348,7 +348,7 @@ cc_library_shared {
     // Converted from: dependencies: [libz_dep, libdl_dep, libmount_dep, libglib_dep,
     //   libgobject_dep, libgmodule_dep, selinux_dep, xattr_dep, platform_deps,
     //   network_libs, libsysprof_capture_dep, gioenumtypes_dep, gvdb_dep]
-    // Note: libmount, selinux, xattr, sysprof, gvdb are optional dependencies (disabled)
+    // Note: libmount, selinux, xattr, sysprof are optional dependencies (disabled)
     // libdl, libresolv are part of Bionic
     shared_libs: [
         "libz",
@@ -356,6 +356,7 @@ cc_library_shared {
         "libglib-2.0",
         "libgobject-2.0",
         "libgmodule-2.0",
+        "libgvdb",
     ],
 
     // Converted from: link_args: glib_link_flags
