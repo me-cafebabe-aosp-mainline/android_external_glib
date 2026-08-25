@@ -1,0 +1,1 @@
+./gobject/gobject-visibility.h

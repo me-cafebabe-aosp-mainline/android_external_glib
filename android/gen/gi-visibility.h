@@ -1,0 +1,1 @@
+./girepository/gi-visibility.h
