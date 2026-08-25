@@ -45,6 +45,10 @@
 #include <ifaddrs.h>
 #endif
 
+#ifdef ANDROID
+#include "resolv_private.h"
+#endif
+
 /*
  * GThreadedResolver is a threaded wrapper around the system libc’s
  * `getaddrinfo()`.

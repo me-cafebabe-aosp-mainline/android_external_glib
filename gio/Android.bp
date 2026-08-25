@@ -343,6 +343,8 @@ cc_library_shared {
     static_libs: [
         "libgio_xdgmime",
         "libgio_inotify",
+        // Manual add
+        "libc_dns",
     ],
 
     // Converted from: dependencies: [libz_dep, libdl_dep, libmount_dep, libglib_dep,
@@ -363,6 +365,11 @@ cc_library_shared {
     ldflags: [
         "-Wl,-z,nodelete",
         "-Wl,-Bsymbolic-functions",
+    ],
+
+    include_dirs: [
+        // Manual add, local_include_dirs of libc_dns
+        "bionic/libc/dns/include",
     ],
 
     export_include_dirs: [
