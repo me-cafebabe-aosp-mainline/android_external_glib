@@ -343,6 +343,8 @@ cc_library_shared {
     static_libs: [
         "libgio_xdgmime",
         "libgio_inotify",
+        // Manually moved from shared_libs
+        "libgvdb",
     ],
 
     // Converted from: dependencies: [libz_dep, libdl_dep, libmount_dep, libglib_dep,
@@ -356,7 +358,6 @@ cc_library_shared {
         "libglib-2.0",
         "libgobject-2.0",
         "libgmodule-2.0",
-        "libgvdb",
     ],
 
     // Converted from: link_args: glib_link_flags
