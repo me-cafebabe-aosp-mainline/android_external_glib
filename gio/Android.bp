@@ -60,13 +60,13 @@ cc_library_shared {
 
     srcs: [
         // Converted from: gioenumtypes_h/c (pre-generated)
-        "../android/gen/gioenumtypes.c",
+        "parent-symlink/android/gen/gioenumtypes.c",
 
         // Converted from: gdbus_daemon_sources (pre-generated)
-        "../android/gen/gdbus-daemon-generated.c",
+        "parent-symlink/android/gen/gdbus-daemon-generated.c",
 
         // Converted from: portal_sources (xdp-dbus pre-generated)
-        "../android/gen/xdp-dbus.c",
+        "parent-symlink/android/gen/xdp-dbus.c",
 
         // Converted from: gio_base_sources
         "gappinfo.c",
@@ -201,8 +201,8 @@ cc_library_shared {
         "glistmodel.c",
         "gliststore.c",
 
-        // Converted from: glib_build_shared => gio_sources += files('../glib/gtrace.c')
-        "../glib/gtrace.c",
+        // Converted from: glib_build_shared => gio_sources += files('parent-symlink/glib/gtrace.c')
+        "parent-symlink/glib/gtrace.c",
 
         // Converted from: contenttype_sources (non-cocoa => gcontenttype-fdo.c)
         "gcontenttype-fdo.c",
