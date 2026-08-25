@@ -22,7 +22,9 @@
 
 #include <glib.h>
 
+#ifndef ANDROID
 #include <libintl.h>
+#endif
 #include <string.h>
 
 #define  _(String) gettext (String)

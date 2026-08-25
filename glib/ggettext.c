@@ -42,7 +42,9 @@
 
 #include <string.h>
 #include <locale.h>
+#ifndef ANDROID
 #include <libintl.h>
+#endif
 
 #ifdef G_OS_WIN32
 

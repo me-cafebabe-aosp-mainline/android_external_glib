@@ -22,7 +22,9 @@
 
 #include <glib.h>
 
+#ifndef ANDROID
 #include <libintl.h>
+#endif
 #include <string.h>
 
 #ifndef GETTEXT_PACKAGE
