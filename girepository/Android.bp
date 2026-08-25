@@ -36,7 +36,6 @@ cc_library_static {
     cflags: [
         "-Wno-implicit-fallthrough",
         "-Wno-old-style-definition",
-        "-Wno-suggest-attribute=noreturn",
         "-Wno-type-limits",
         "-Wno-undef",
         "-Wno-unused-parameter",
