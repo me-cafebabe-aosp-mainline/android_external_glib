@@ -188,6 +188,8 @@ cc_library_shared {
         "libgobject-2.0",
         "libgmodule-2.0",
         "libgio-2.0",
+        // Manual add
+        "libffi",
     ],
 
     // Converted from: link_args: glib_link_flags
