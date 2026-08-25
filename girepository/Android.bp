@@ -111,7 +111,6 @@ cc_library_static {
         "-DGOBJECT_INTROSPECTION_DATADIR=\"/system/share\"",
         "-DGOBJECT_INTROSPECTION_RELATIVE_LIBDIR=\"lib\"",
         "-Wno-unused-parameter",
-        "-Wno-duplicated-branches",
         "-Wno-cast-align",
     ],
     static_libs: [
@@ -169,7 +168,6 @@ cc_library_shared {
         "-DGOBJECT_INTROSPECTION_DATADIR=\"/system/share\"",
         "-DGOBJECT_INTROSPECTION_RELATIVE_LIBDIR=\"lib\"",
         "-Wno-unused-parameter",
-        "-Wno-duplicated-branches",
         "-Wno-type-limits",
         "-Wno-cast-align",
         "-Wno-missing-field-initializers",
