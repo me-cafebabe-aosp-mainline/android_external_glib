@@ -25,7 +25,7 @@
 #define PACKAGE_VERSION "2.89.4"
 
 /* Converted from: glib_conf.set('ENABLE_NLS', 1) */
-#define ENABLE_NLS 1
+//#define ENABLE_NLS 1
 
 /* Converted from: glib_conf.set('_GNU_SOURCE', 1) */
 #define _GNU_SOURCE 1
