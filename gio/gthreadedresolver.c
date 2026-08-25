@@ -1393,7 +1393,9 @@ do_lookup_records (const gchar          *rrname,
 {
   GList *records;
 
-#if defined(G_OS_UNIX)
+#if defined(ANDROID)
+  records = g_list_alloc();
+#elif defined(G_OS_UNIX)
   gint len = 512;
   gint herr;
   GByteArray *answer;
