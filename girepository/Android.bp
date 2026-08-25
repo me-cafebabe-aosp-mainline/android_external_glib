@@ -181,6 +181,8 @@ cc_library_shared {
     //   libgio_dep, libgirepository_internals_dep]
     static_libs: [
         "libgirepository_internals",
+        // Manual add
+        "libgirepository_gthash",
     ],
     shared_libs: [
         "libglib-2.0",
