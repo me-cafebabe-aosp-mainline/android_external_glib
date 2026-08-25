@@ -29,29 +29,6 @@
 #include "config.h"
 #include "gioenumtypes.h"
 #include <gio.h>
-/* enumerations from "gdbusauthmechanism.h" */
-GType
-g_dbus_auth_mechanism_state_get_type (void)
-{
-  static GType static_g_define_type_id = 0;
-
-  if (g_once_init_enter_pointer (&static_g_define_type_id))
-    {
-      static const GEnumValue values[] = {
-        { G_DBUS_AUTH_MECHANISM_STATE_INVALID, "G_DBUS_AUTH_MECHANISM_STATE_INVALID", "invalid" },
-        { G_DBUS_AUTH_MECHANISM_STATE_WAITING_FOR_DATA, "G_DBUS_AUTH_MECHANISM_STATE_WAITING_FOR_DATA", "waiting-for-data" },
-        { G_DBUS_AUTH_MECHANISM_STATE_HAVE_DATA_TO_SEND, "G_DBUS_AUTH_MECHANISM_STATE_HAVE_DATA_TO_SEND", "have-data-to-send" },
-        { G_DBUS_AUTH_MECHANISM_STATE_REJECTED, "G_DBUS_AUTH_MECHANISM_STATE_REJECTED", "rejected" },
-        { G_DBUS_AUTH_MECHANISM_STATE_ACCEPTED, "G_DBUS_AUTH_MECHANISM_STATE_ACCEPTED", "accepted" },
-        { 0, NULL, NULL }
-      };
-      GType g_define_type_id =
-        g_enum_register_static (g_intern_static_string ("GDBusAuthMechanismState"), values);
-      g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
-    }
-
-  return static_g_define_type_id;
-}
 /* enumerations from "gioenums.h" */
 GType
 g_app_info_create_flags_get_type (void)
@@ -1859,88 +1836,6 @@ g_ecn_code_point_get_type (void)
 
   return static_g_define_type_id;
 }
-/* enumerations from "glocalfileinfo.h" */
-GType
-g_local_file_stat_field_get_type (void)
-{
-  static GType static_g_define_type_id = 0;
-
-  if (g_once_init_enter_pointer (&static_g_define_type_id))
-    {
-      static const GEnumValue values[] = {
-        { G_LOCAL_FILE_STAT_FIELD_TYPE, "G_LOCAL_FILE_STAT_FIELD_TYPE", "type" },
-        { G_LOCAL_FILE_STAT_FIELD_MODE, "G_LOCAL_FILE_STAT_FIELD_MODE", "mode" },
-        { G_LOCAL_FILE_STAT_FIELD_NLINK, "G_LOCAL_FILE_STAT_FIELD_NLINK", "nlink" },
-        { G_LOCAL_FILE_STAT_FIELD_UID, "G_LOCAL_FILE_STAT_FIELD_UID", "uid" },
-        { G_LOCAL_FILE_STAT_FIELD_GID, "G_LOCAL_FILE_STAT_FIELD_GID", "gid" },
-        { G_LOCAL_FILE_STAT_FIELD_ATIME, "G_LOCAL_FILE_STAT_FIELD_ATIME", "atime" },
-        { G_LOCAL_FILE_STAT_FIELD_MTIME, "G_LOCAL_FILE_STAT_FIELD_MTIME", "mtime" },
-        { G_LOCAL_FILE_STAT_FIELD_CTIME, "G_LOCAL_FILE_STAT_FIELD_CTIME", "ctime" },
-        { G_LOCAL_FILE_STAT_FIELD_INO, "G_LOCAL_FILE_STAT_FIELD_INO", "ino" },
-        { G_LOCAL_FILE_STAT_FIELD_SIZE, "G_LOCAL_FILE_STAT_FIELD_SIZE", "size" },
-        { G_LOCAL_FILE_STAT_FIELD_BLOCKS, "G_LOCAL_FILE_STAT_FIELD_BLOCKS", "blocks" },
-        { G_LOCAL_FILE_STAT_FIELD_BTIME, "G_LOCAL_FILE_STAT_FIELD_BTIME", "btime" },
-        { 0, NULL, NULL }
-      };
-      GType g_define_type_id =
-        g_enum_register_static (g_intern_static_string ("GLocalFileStatField"), values);
-      g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
-    }
-
-  return static_g_define_type_id;
-}
-GType
-g_local_file_stat_field_get_type (void)
-{
-  static GType static_g_define_type_id = 0;
-
-  if (g_once_init_enter_pointer (&static_g_define_type_id))
-    {
-      static const GFlagsValue values[] = {
-        { G_LOCAL_FILE_STAT_FIELD_TYPE, "G_LOCAL_FILE_STAT_FIELD_TYPE", "type" },
-        { G_LOCAL_FILE_STAT_FIELD_MODE, "G_LOCAL_FILE_STAT_FIELD_MODE", "mode" },
-        { G_LOCAL_FILE_STAT_FIELD_NLINK, "G_LOCAL_FILE_STAT_FIELD_NLINK", "nlink" },
-        { G_LOCAL_FILE_STAT_FIELD_UID, "G_LOCAL_FILE_STAT_FIELD_UID", "uid" },
-        { G_LOCAL_FILE_STAT_FIELD_GID, "G_LOCAL_FILE_STAT_FIELD_GID", "gid" },
-        { G_LOCAL_FILE_STAT_FIELD_ATIME, "G_LOCAL_FILE_STAT_FIELD_ATIME", "atime" },
-        { G_LOCAL_FILE_STAT_FIELD_MTIME, "G_LOCAL_FILE_STAT_FIELD_MTIME", "mtime" },
-        { G_LOCAL_FILE_STAT_FIELD_CTIME, "G_LOCAL_FILE_STAT_FIELD_CTIME", "ctime" },
-        { G_LOCAL_FILE_STAT_FIELD_INO, "G_LOCAL_FILE_STAT_FIELD_INO", "ino" },
-        { G_LOCAL_FILE_STAT_FIELD_SIZE, "G_LOCAL_FILE_STAT_FIELD_SIZE", "size" },
-        { G_LOCAL_FILE_STAT_FIELD_BLOCKS, "G_LOCAL_FILE_STAT_FIELD_BLOCKS", "blocks" },
-        { G_LOCAL_FILE_STAT_FIELD_BTIME, "G_LOCAL_FILE_STAT_FIELD_BTIME", "btime" },
-        { 0, NULL, NULL }
-      };
-      GType g_define_type_id =
-        g_flags_register_static (g_intern_static_string ("GLocalFileStatField"), values);
-      g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
-    }
-
-  return static_g_define_type_id;
-}
-/* enumerations from "gmemorymonitorbase.h" */
-GType
-g_memory_monitor_low_memory_level_get_type (void)
-{
-  static GType static_g_define_type_id = 0;
-
-  if (g_once_init_enter_pointer (&static_g_define_type_id))
-    {
-      static const GEnumValue values[] = {
-        { G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_INVALID, "G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_INVALID", "invalid" },
-        { G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_LOW, "G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_LOW", "low" },
-        { G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_MEDIUM, "G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_MEDIUM", "medium" },
-        { G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_CRITICAL, "G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_CRITICAL", "critical" },
-        { G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_COUNT, "G_MEMORY_MONITOR_LOW_MEMORY_LEVEL_COUNT", "count" },
-        { 0, NULL, NULL }
-      };
-      GType g_define_type_id =
-        g_enum_register_static (g_intern_static_string ("GMemoryMonitorLowMemoryLevel"), values);
-      g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
-    }
-
-  return static_g_define_type_id;
-}
 /* enumerations from "gresolver.h" */
 GType
 g_resolver_name_lookup_flags_get_type (void)
@@ -1957,27 +1852,6 @@ g_resolver_name_lookup_flags_get_type (void)
       };
       GType g_define_type_id =
         g_flags_register_static (g_intern_static_string ("GResolverNameLookupFlags"), values);
-      g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
-    }
-
-  return static_g_define_type_id;
-}
-/* enumerations from "gsandbox.h" */
-GType
-g_sandbox_type_get_type (void)
-{
-  static GType static_g_define_type_id = 0;
-
-  if (g_once_init_enter_pointer (&static_g_define_type_id))
-    {
-      static const GEnumValue values[] = {
-        { G_SANDBOX_TYPE_UNKNOWN, "G_SANDBOX_TYPE_UNKNOWN", "unknown" },
-        { G_SANDBOX_TYPE_FLATPAK, "G_SANDBOX_TYPE_FLATPAK", "flatpak" },
-        { G_SANDBOX_TYPE_SNAP, "G_SANDBOX_TYPE_SNAP", "snap" },
-        { 0, NULL, NULL }
-      };
-      GType g_define_type_id =
-        g_enum_register_static (g_intern_static_string ("GSandboxType"), values);
       g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
     }
 
@@ -2002,57 +1876,6 @@ g_settings_bind_flags_get_type (void)
       };
       GType g_define_type_id =
         g_flags_register_static (g_intern_static_string ("GSettingsBindFlags"), values);
-      g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
-    }
-
-  return static_g_define_type_id;
-}
-/* enumerations from "gwin32registrykey.h" */
-GType
-g_win32_registry_value_type_get_type (void)
-{
-  static GType static_g_define_type_id = 0;
-
-  if (g_once_init_enter_pointer (&static_g_define_type_id))
-    {
-      static const GEnumValue values[] = {
-        { G_WIN32_REGISTRY_VALUE_NONE, "G_WIN32_REGISTRY_VALUE_NONE", "none" },
-        { G_WIN32_REGISTRY_VALUE_BINARY, "G_WIN32_REGISTRY_VALUE_BINARY", "binary" },
-        { G_WIN32_REGISTRY_VALUE_UINT32LE, "G_WIN32_REGISTRY_VALUE_UINT32LE", "uint32le" },
-        { G_WIN32_REGISTRY_VALUE_UINT32BE, "G_WIN32_REGISTRY_VALUE_UINT32BE", "uint32be" },
-        { G_WIN32_REGISTRY_VALUE_UINT32, "G_WIN32_REGISTRY_VALUE_UINT32", "uint32" },
-        { G_WIN32_REGISTRY_VALUE_UINT32, "G_WIN32_REGISTRY_VALUE_UINT32", "uint32" },
-        { G_WIN32_REGISTRY_VALUE_EXPAND_STR, "G_WIN32_REGISTRY_VALUE_EXPAND_STR", "expand-str" },
-        { G_WIN32_REGISTRY_VALUE_LINK, "G_WIN32_REGISTRY_VALUE_LINK", "link" },
-        { G_WIN32_REGISTRY_VALUE_MULTI_STR, "G_WIN32_REGISTRY_VALUE_MULTI_STR", "multi-str" },
-        { G_WIN32_REGISTRY_VALUE_UINT64LE, "G_WIN32_REGISTRY_VALUE_UINT64LE", "uint64le" },
-        { G_WIN32_REGISTRY_VALUE_UINT64, "G_WIN32_REGISTRY_VALUE_UINT64", "uint64" },
-        { G_WIN32_REGISTRY_VALUE_STR, "G_WIN32_REGISTRY_VALUE_STR", "str" },
-        { 0, NULL, NULL }
-      };
-      GType g_define_type_id =
-        g_enum_register_static (g_intern_static_string ("GWin32RegistryValueType"), values);
-      g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
-    }
-
-  return static_g_define_type_id;
-}
-GType
-g_win32_registry_key_watcher_flags_get_type (void)
-{
-  static GType static_g_define_type_id = 0;
-
-  if (g_once_init_enter_pointer (&static_g_define_type_id))
-    {
-      static const GFlagsValue values[] = {
-        { G_WIN32_REGISTRY_WATCH_NAME, "G_WIN32_REGISTRY_WATCH_NAME", "name" },
-        { G_WIN32_REGISTRY_WATCH_ATTRIBUTES, "G_WIN32_REGISTRY_WATCH_ATTRIBUTES", "attributes" },
-        { G_WIN32_REGISTRY_WATCH_VALUES, "G_WIN32_REGISTRY_WATCH_VALUES", "values" },
-        { G_WIN32_REGISTRY_WATCH_SECURITY, "G_WIN32_REGISTRY_WATCH_SECURITY", "security" },
-        { 0, NULL, NULL }
-      };
-      GType g_define_type_id =
-        g_flags_register_static (g_intern_static_string ("GWin32RegistryKeyWatcherFlags"), values);
       g_once_init_leave_pointer (&static_g_define_type_id, g_define_type_id);
     }
 
