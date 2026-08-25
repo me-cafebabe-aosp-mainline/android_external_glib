@@ -22,7 +22,6 @@ license {
 cc_defaults {
     name: "glib_defaults",
     vendor_available: true,
-    product_available: true,
     c_std: "gnu11",
     cflags: [
         // Converted from: add_project_arguments('-D_GNU_SOURCE', ...)
@@ -68,7 +67,6 @@ cc_defaults {
 cc_library_headers {
     name: "libglib_config_headers",
     vendor_available: true,
-    product_available: true,
     // Converted from: configure_file(output: 'config.h', configuration: glib_conf)
     export_include_dirs: [
         "android/config",
@@ -96,7 +94,6 @@ cc_library_headers {
 cc_library_headers {
     name: "libglib_gen_headers",
     vendor_available: true,
-    product_available: true,
     export_include_dirs: ["android/gen"],
 }
 
@@ -105,6 +102,5 @@ cc_library_headers {
 cc_library_headers {
     name: "libglib_version_headers",
     vendor_available: true,
-    product_available: true,
     export_include_dirs: ["android/gen"],
 }

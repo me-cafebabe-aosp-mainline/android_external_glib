@@ -129,7 +129,6 @@ cc_library_shared {
     name: "libgirepository-2.0",
     defaults: ["glib_defaults"],
     vendor_available: true,
-    product_available: true,
 
     srcs: [
         // Converted from: girepo_sources + girepo_ffi_sources

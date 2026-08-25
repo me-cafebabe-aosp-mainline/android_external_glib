@@ -5,7 +5,6 @@ cc_library_shared {
     name: "libgmodule-2.0",
     defaults: ["glib_defaults"],
     vendor_available: true,
-    product_available: true,
 
     srcs: [
         // Converted from: gmodule_sources = [gmodule_c, gmodule_visibility_h, gmodule_deprecated_c]

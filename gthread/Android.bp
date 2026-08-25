@@ -7,7 +7,6 @@ cc_library_shared {
     name: "libgthread-2.0",
     defaults: ["glib_defaults"],
     vendor_available: true,
-    product_available: true,
 
     // Converted from: gthread_sources = ['gthread-impl.c']
     srcs: [

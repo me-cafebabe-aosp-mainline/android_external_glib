@@ -23,7 +23,6 @@ cc_library_shared {
     name: "libglib-2.0",
     defaults: ["glib_defaults"],
     vendor_available: true,
-    product_available: true,
 
     srcs: [
         // Converted from: glib_deprecated_sources
