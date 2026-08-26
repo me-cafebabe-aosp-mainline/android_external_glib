@@ -48,7 +48,7 @@ param_char_init (GParamSpec *pspec)
   GParamSpecChar *cspec = G_PARAM_SPEC_CHAR (pspec);
   
   cspec->minimum = CHAR_MIN;
-  cspec->maximum = CHAR_MAX;
+  cspec->maximum = (gint8)CHAR_MAX;
   cspec->default_value = 0;
 }
 
