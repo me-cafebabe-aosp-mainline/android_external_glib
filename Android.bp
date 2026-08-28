@@ -52,6 +52,7 @@ cc_defaults {
     static_libs: [],
     shared_libs: [],
     header_libs: ["libglib_config_headers", "glib_global_headers"],
+    export_header_lib_headers: ["glib_global_headers"],
 }
 
 // Converted from: include_directories('.', 'glib', 'gobject', 'gmodule', 'gio', 'girepository')
