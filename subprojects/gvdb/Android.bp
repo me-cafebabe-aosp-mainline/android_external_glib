@@ -1,0 +1,8 @@
+cc_library {
+    name: "libgvdb",
+    defaults: ["glib_defaults"],
+    srcs: ["gvdb/*.c"],
+    local_include_dirs: ["gvdb"],
+    export_include_dirs: ["."],
+    vendor_available: true,
+}
